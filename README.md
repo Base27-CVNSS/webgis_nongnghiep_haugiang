@@ -28,6 +28,7 @@ assets/
 sw.js
 manifest.webmanifest
 start-offline.bat
+.github/workflows/validate-static.yml
 ```
 
 ## Chạy offline
@@ -43,6 +44,24 @@ python -m http.server 8080
 sau đó mở `http://localhost:8080/`.
 
 `index.html` cũng có thể mở trực tiếp; Service Worker/PWA chỉ hoạt động khi chạy qua HTTP(S).
+
+## GitHub Pages
+
+Đây là website static thuần, không cần build step. Repo sử dụng phương án **Deploy from a branch** thay vì custom Pages workflow để tránh lỗi bootstrap khi GitHub Pages site chưa được bật.
+
+Thiết lập một lần:
+
+1. Mở **Settings → Pages** của repository.
+2. Tại **Build and deployment → Source**, chọn **Deploy from a branch**.
+3. Chọn branch **`main`**.
+4. Chọn thư mục **`/(root)`**.
+5. Nhấn **Save**.
+
+Sau khi Pages được bật, website dự kiến tại:
+
+`https://base27-cvnss.github.io/webgis_nongnghiep_haugiang/`
+
+Workflow `.github/workflows/validate-static.yml` chỉ làm nhiệm vụ CI kiểm tra mã nguồn: file bắt buộc, dependency Wayback/Archive, cú pháp JavaScript và JSON manifest. Việc publish do GitHub Pages quản lý trực tiếp từ `main/(root)`.
 
 ## Phạm vi phục dựng
 
