@@ -1,0 +1,44 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bản đồ — AgriGIS Hậu Giang Offline</title><link rel="icon" href="assets/img/logo.svg"><link rel="stylesheet" href="assets/css/style.css"></head><body><div class="topnote">BẢN PHỤC DỰNG KỸ THUẬT · STATIC/OFFLINE · KHÔNG PHẢI CỔNG THÔNG TIN CHÍNH THỨC</div>
+<header class="site-header"><div class="container navbar">
+<a class="brand" href="index.html"><img src="assets/img/logo.svg" alt="AgriGIS Hậu Giang"><span>AgriGIS Hậu Giang<small>Hệ thống thông tin nông nghiệp</small></span></a>
+<nav class="navlinks" id="navLinks">
+<a href="map.html">Bản đồ</a><a href="dashboard.html">Quản trị</a><a href="news.html">Tin tức</a><a href="weather.html">Bản tin thời tiết</a><a href="contact.html">Liên hệ</a>
+</nav><div class="nav-actions"><button class="icon-btn" id="searchBtn" aria-label="Tìm kiếm">⌕</button><button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button></div>
+</div></header>
+<section class="page-hero"><div class="container"><h1>Bản đồ nông nghiệp</h1><p>WebGIS SVG chạy hoàn toàn cục bộ — không tile server, không API, không Wayback.</p></div></section>
+<main class="section" style="padding-top:28px"><div class="container">
+<div class="archive-note"><b>Phục dựng offline:</b> ranh giới phía dưới là sơ đồ tương tác giản lược để tái tạo trải nghiệm WebGIS. Không sử dụng như dữ liệu địa giới hành chính chính thức.</div>
+<div class="toolbar"><input class="field search-box" id="mapSearch" placeholder="Tìm Vị Thanh, Phụng Hiệp, Long Mỹ..."><select class="field"><option>Năm dữ liệu: 2022</option><option>2021</option></select></div>
+<div class="map-layout">
+<aside class="map-panel"><h3>Lớp dữ liệu</h3>
+<label class="layer"><input type="checkbox" checked data-layer="rice-layer"><span><b>Giám sát lúa</b><small>Vùng sản xuất/mùa vụ minh họa</small></span></label>
+<label class="layer"><input type="checkbox" checked data-layer="flood-layer"><span><b>Giám sát lũ</b><small>Điểm/miền cảnh báo minh họa</small></span></label>
+<label class="layer"><input type="checkbox" checked data-layer="sensor-layer"><span><b>Quan trắc</b><small>Trạm cảm biến giả lập offline</small></span></label>
+<label class="layer"><input type="checkbox" checked data-layer="label-layer"><span><b>Nhãn hành chính</b><small>Tên đơn vị theo bối cảnh 2022</small></span></label>
+<hr style="border:0;border-top:1px solid var(--line);margin:18px 0"><div class="notice">Tương tác: kéo để di chuyển, cuộn chuột để zoom, bấm huyện để xem thông tin.</div></aside>
+<div class="map-stage" id="mapStage"><div class="map-bg"></div><div class="map-canvas" id="mapCanvas">
+<svg viewBox="0 0 850 650" role="img" aria-label="Sơ đồ Hậu Giang">
+<g id="districts">
+<path class="district" data-name="Châu Thành A" d="M225 70 L385 52 446 124 382 195 232 171 183 118Z"/>
+<path class="district" data-name="Châu Thành" d="M445 124 L590 93 683 176 616 263 494 243 382 195Z"/>
+<path class="district" data-name="Ngã Bảy" d="M616 263 L713 222 768 294 718 355 635 340 589 297Z"/>
+<path class="district" data-name="Phụng Hiệp" d="M494 243 L616 263 589 297 635 340 607 460 476 478 392 387 420 300Z"/>
+<path class="district" data-name="Vị Thủy" d="M232 171 L382 195 494 243 420 300 392 387 250 371 184 280Z"/>
+<path class="district" data-name="Vị Thanh" d="M184 280 L250 371 223 445 122 427 87 348Z"/>
+<path class="district" data-name="Long Mỹ" d="M250 371 L392 387 476 478 414 575 278 548 223 445Z"/>
+<path class="district" data-name="Long Mỹ H" d="M122 427 L223 445 278 548 217 606 96 559 63 480Z"/>
+</g>
+<g class="rice-layer" opacity=".8"><path d="M260 220c65-34 119-10 153 48-52 30-108 29-169-4z" fill="#b4cf58"/><path d="M305 417c66-19 111-6 145 44-52 40-113 42-164 8z" fill="#a8c84a"/></g>
+<g class="flood-layer" opacity=".72"><path d="M495 316c62-28 105 6 123 45-38 39-89 48-143 24z" fill="#67b9cf"/><path d="M121 330c39-13 79 2 105 31-25 32-75 39-119 18z" fill="#67b9cf"/></g>
+<g class="sensor-layer"><circle class="map-poi" cx="196" cy="352" r="8"/><circle class="map-poi" cx="545" cy="337" r="8"/><circle class="map-poi" cx="350" cy="452" r="8"/><circle class="map-poi" cx="624" cy="190" r="8"/></g>
+<g class="label-layer">
+<text class="map-label" x="305" y="123">Châu Thành A</text><text class="map-label" x="535" y="178">Châu Thành</text><text class="map-label" x="685" y="292">Ngã Bảy</text>
+<text class="map-label" x="514" y="374">Phụng Hiệp</text><text class="map-label" x="302" y="278">Vị Thủy</text><text class="map-label" x="162" y="365">Vị Thanh</text><text class="map-label" x="350" y="472">TX. Long Mỹ</text><text class="map-label" x="168" y="516">H. Long Mỹ</text>
+</g></svg></div>
+<div class="map-controls"><button id="zoomIn">+</button><button id="zoomOut">−</button><button id="resetMap" title="Đặt lại">⌂</button></div>
+<div class="map-popup" id="mapPopup"></div><div class="map-legend"><b>Chú giải</b><br>🟩 Lúa &nbsp; 🟦 Lũ &nbsp; 🟠 Quan trắc</div><div class="coord" id="coord">10.40, 105.60</div>
+</div></div></div></main><footer><div class="footer-main"><div class="container footer-grid">
+<div><h4>ĐƠN VỊ CHỦ QUẢN (THEO BẢN LƯU 2022)</h4><p>Sở Khoa học và Công nghệ tỉnh Hậu Giang</p></div>
+<div><h4>ĐƠN VỊ PHỐI HỢP (THEO BẢN LƯU 2022)</h4><p>Sở Nông nghiệp và Phát triển nông thôn tỉnh Hậu Giang</p></div>
+<div><h4>NHÓM TÁC GIẢ GỐC</h4><ul><li>Trần Thái Bình và nhóm nghiên cứu</li><li>Trung tâm Vũ trụ Việt Nam</li></ul></div>
+</div></div><div class="footer-bottom">Phục dựng giao diện AgriGIS Hậu Giang từ snapshot 2022 · Tài nguyên nội bộ, không dùng web-static.archive.org</div></footer><div class="search-modal" id="searchModal"><div class="search-panel"><div style="display:flex;gap:10px;align-items:center"><input id="globalSearch" placeholder="Tìm bản đồ, dữ liệu, chức năng..."><button class="icon-btn" id="searchClose" style="background:#eef5f3;color:#244">✕</button></div><div id="searchResults" class="search-results"></div></div></div><script src="assets/js/app.js"></script><script src="assets/js/map.js"></script></body></html>

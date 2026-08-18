@@ -1,0 +1,20 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Quản trị — AgriGIS Hậu Giang</title><link rel="icon" href="assets/img/logo.svg"><link rel="stylesheet" href="assets/css/style.css"></head><body><div class="topnote">BẢN PHỤC DỰNG KỸ THUẬT · STATIC/OFFLINE · KHÔNG PHẢI CỔNG THÔNG TIN CHÍNH THỨC</div>
+<header class="site-header"><div class="container navbar">
+<a class="brand" href="index.html"><img src="assets/img/logo.svg" alt="AgriGIS Hậu Giang"><span>AgriGIS Hậu Giang<small>Hệ thống thông tin nông nghiệp</small></span></a>
+<nav class="navlinks" id="navLinks">
+<a href="map.html">Bản đồ</a><a href="dashboard.html">Quản trị</a><a href="news.html">Tin tức</a><a href="weather.html">Bản tin thời tiết</a><a href="contact.html">Liên hệ</a>
+</nav><div class="nav-actions"><button class="icon-btn" id="searchBtn" aria-label="Tìm kiếm">⌕</button><button class="menu-btn" id="menuBtn" aria-label="Menu">☰</button></div>
+</div></header>
+<section class="page-hero"><div class="container"><h1>Quản trị dữ liệu</h1><p>Bảng điều khiển read-only phục dựng bằng JavaScript thuần, không backend.</p></div></section>
+<main class="section" style="padding-top:28px"><div class="container"><div class="archive-note">Các số liệu dưới đây là <b>dữ liệu minh họa</b> để tái tạo chức năng dashboard offline; không phải số liệu thống kê chính thức.</div>
+<div class="stat-grid"><div class="stat"><b>8</b><span>đơn vị cấp huyện/thành phố (bối cảnh 2022)</span></div><div class="stat"><b>5</b><span>nhóm lớp dữ liệu mẫu</span></div><div class="stat"><b>24</b><span>điểm quan trắc giả lập</span></div><div class="stat"><b>100%</b><span>tài nguyên nội bộ</span></div></div>
+<div class="grid grid-2" style="grid-template-columns:1fr 1fr"><div class="chart-card"><h3>Cơ cấu nhóm cây trồng (demo)</h3><canvas id="cropChart" class="chart"></canvas></div><div class="chart-card"><h3>Chỉ số dữ liệu theo khu vực (demo)</h3><canvas id="districtChart" class="chart"></canvas></div></div>
+<h2 style="margin-top:36px">Danh mục lớp dữ liệu</h2><div class="table-wrap"><table><thead><tr><th>Mã</th><th>Lớp dữ liệu</th><th>Kiểu</th><th>Trạng thái</th><th>Nguồn offline</th></tr></thead><tbody>
+<tr><td>AGR-RICE</td><td>Giám sát lúa</td><td>Polygon</td><td>Đang hiển thị</td><td>SVG nội bộ</td></tr><tr><td>AGR-FLOOD</td><td>Giám sát lũ</td><td>Polygon</td><td>Đang hiển thị</td><td>SVG nội bộ</td></tr>
+<tr><td>AGR-SENSOR</td><td>Quan trắc tự động</td><td>Point</td><td>Đang hiển thị</td><td>JS nội bộ</td></tr><tr><td>AGR-ADMIN</td><td>Đơn vị hành chính</td><td>Polygon</td><td>Minh họa</td><td>SVG nội bộ</td></tr>
+<tr><td>AGR-CUBE</td><td>Datacube</td><td>Raster concept</td><td>Mô phỏng</td><td>Asset nội bộ</td></tr></tbody></table></div>
+<p><button class="btn btn-primary" onclick="window.print()">⇩ In / Lưu PDF báo cáo</button></p></div></main><footer><div class="footer-main"><div class="container footer-grid">
+<div><h4>ĐƠN VỊ CHỦ QUẢN (THEO BẢN LƯU 2022)</h4><p>Sở Khoa học và Công nghệ tỉnh Hậu Giang</p></div>
+<div><h4>ĐƠN VỊ PHỐI HỢP (THEO BẢN LƯU 2022)</h4><p>Sở Nông nghiệp và Phát triển nông thôn tỉnh Hậu Giang</p></div>
+<div><h4>NHÓM TÁC GIẢ GỐC</h4><ul><li>Trần Thái Bình và nhóm nghiên cứu</li><li>Trung tâm Vũ trụ Việt Nam</li></ul></div>
+</div></div><div class="footer-bottom">Phục dựng giao diện AgriGIS Hậu Giang từ snapshot 2022 · Tài nguyên nội bộ, không dùng web-static.archive.org</div></footer><div class="search-modal" id="searchModal"><div class="search-panel"><div style="display:flex;gap:10px;align-items:center"><input id="globalSearch" placeholder="Tìm bản đồ, dữ liệu, chức năng..."><button class="icon-btn" id="searchClose" style="background:#eef5f3;color:#244">✕</button></div><div id="searchResults" class="search-results"></div></div></div><script src="assets/js/app.js"></script><script src="assets/js/dashboard.js"></script></body></html>
